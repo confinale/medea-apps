@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: medea-prod
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: medea
+  source:
+    repoURL: 'git@github.com:confinale/medea-config.git'
+    path: overlays/prod
+    targetRevision: v0.0.3
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: medea-prod
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

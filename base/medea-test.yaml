@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: medea-test
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: medea
+  source:
+    repoURL: 'git@github.com:confinale/medea-config.git'
+    path: overlays/test
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: medea-test
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
