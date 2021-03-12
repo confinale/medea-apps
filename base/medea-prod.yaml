@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'git@github.com:confinale/medea-config.git'
     path: overlays/prod
-    targetRevision: v0.0.4
+    targetRevision: v0.0.5
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: medea-prod
