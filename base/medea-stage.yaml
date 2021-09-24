@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'git@github.com:confinale/medea-config.git'
     path: overlays/stage
-    targetRevision: v0.0.7
+    targetRevision: v0.0.8
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: medea-stage
